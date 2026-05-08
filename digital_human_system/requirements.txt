@@ -1,0 +1,12 @@
+# 数字人系统依赖包
+jieba>=0.42.1
+
+# ROS依赖说明：
+# - ROS1: 通过ROS1安装 rospy, sensor_msgs, std_msgs
+#   sudo apt install ros-noetic-rospy ros-noetic-sensor-msgs ros-noetic-std-msgs
+#
+# - ROS2: 通过ROS2安装 rclpy, sensor_msgs, std_msgs
+#   sudo apt install ros-humble-rclpy ros-humble-sensor-msgs ros-humble-std-msgs
+#   或根据你的ROS2版本调整包名
+#
+# 系统会自动检测ROS版本并使用相应的库

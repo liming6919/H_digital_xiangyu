@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- 拖动保持控制节点 -->
+    <node name="ymbot_drag_hold_control" pkg="ymbot_devices_driver" type="ymbot_drag_hold_control" output="screen">
+        <!-- 控制频率 (Hz) -->
+        <param name="control_frequency" value="50"/>
+        
+        <!-- 设备索引 -->
+        <param name="device_index" value="0"/>
+        
+        <!-- 通道 -->
+        <param name="channel" value="0"/>
+        
+        <!-- CAN设备组数 -->
+        <param name="n_motor_group" value="3"/>
+        
+        <!-- 拖动保持参数 -->
+        <param name="position_threshold" value="0.5"/>  <!-- 位置变化阈值（度） -->
+        <param name="current_threshold" value="50.0"/>  <!-- 电流阈值（mA） -->
+        <param name="hold_stiffness" value="0.8"/>      <!-- 保持刚度 -->
+        
+        <!-- 电机ID列表 -->
+        <rosparam param="motor_ids">[31, 32, 33, 34, 35, 41, 42, 43, 44, 45]</rosparam>
+        
+        <!-- ROS日志级别 -->
+        <env name="ROSCONSOLE_CONFIG_FILE" value="$(find ymbot_devices_driver)/config/rosconsole.conf"/>
+    </node>
+    
+    <!-- 参数 -->
+    <arg name="use_rviz" default="true"/>
+    <arg name="auto_test" default="false"/>
+    
+    <!-- 启动RViz来监控机器人状态 -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ymbot_kongzi_moveit_config)/launch/moveit.rviz" if="$(arg use_rviz)"/>
+    
+    <!-- 启动测试脚本 -->
+    <node name="drag_hold_test" pkg="ymbot_devices_driver" type="test_drag_hold_simple.py" output="screen" if="$(arg auto_test)"/>
+</launch>

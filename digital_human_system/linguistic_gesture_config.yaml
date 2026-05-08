@@ -1,0 +1,116 @@
+# 语言驱动手势系统配置
+# Linguistic Gesture System Configuration
+
+# 系统开关
+system:
+  enabled: true                    # 是否启用语言驱动手势系统
+  fallback_to_traditional: true    # 失败时是否回退到传统系统
+  debug_mode: true                 # 是否启用调试模式
+
+# 语言学分析配置
+linguistic_analysis:
+  enabled: true
+  sentence_structure_detection: true    # 句子结构检测
+  semantic_role_extraction: true       # 语义角色提取
+  discourse_function_analysis: true    # 话语功能分析
+  emphasis_level_detection: true       # 强调程度检测
+
+# 韵律分析配置
+prosodic_analysis:
+  enabled: true
+  pause_detection: true               # 停顿检测
+  speech_rate_analysis: true         # 语速分析
+  stress_identification: true        # 重音识别
+  rhythm_pattern_analysis: true      # 节奏模式分析
+  
+  # 停顿阈值配置
+  pause_thresholds:
+    micro: 0.1      # 微停顿 100ms
+    short: 0.3      # 短停顿 300ms
+    medium: 0.6     # 中停顿 600ms
+    long: 1.0       # 长停顿 1000ms
+
+# 手势连贯性配置
+gesture_coherence:
+  enabled: true
+  smooth_transitions: true           # 平滑转换
+  contextual_coherence: true         # 上下文连贯性
+  gesture_chains: true               # 手势链
+  repetition_avoidance: true         # 避免重复
+  
+  # 连贯性权重
+  transition_weights:
+    hand_compatibility: 0.5          # 手部兼容性权重
+    energy_smoothness: 0.3           # 能量平滑度权重
+    height_smoothness: 0.2           # 高度平滑度权重
+
+# 语言结构映射配置
+structure_mapping:
+  parallel_structure:
+    enabled: true
+    pattern: "alternating"           # 交替模式
+    spatial_mapping: true            # 空间映射
+  
+  contrastive_structure:
+    enabled: true
+    pattern: "opposing"              # 对立模式
+    spatial_mapping: true
+  
+  progressive_structure:
+    enabled: true
+    pattern: "escalating"            # 递进模式
+    intensity_curve: "increasing"    # 强度曲线
+  
+  enumeration_structure:
+    enabled: true
+    pattern: "sequential"            # 序列模式
+    spatial_progression: true        # 空间递进
+
+# 话语功能映射配置
+discourse_mapping:
+  introduction:
+    enabled: true
+    phases: ["opening", "presentation", "engagement"]
+  
+  explanation:
+    enabled: true
+    phases: ["setup", "elaboration", "clarification"]
+  
+  emphasis:
+    enabled: true
+    phases: ["buildup", "climax", "reinforcement"]
+  
+  comparison:
+    enabled: true
+    phases: ["setup", "contrast", "synthesis"]
+  
+  conclusion:
+    enabled: true
+    phases: ["summary", "finalization", "closure"]
+
+# 性能配置
+performance:
+  max_processing_time: 2.0          # 最大处理时间(秒)
+  cache_analysis_results: true      # 缓存分析结果
+  parallel_processing: false        # 并行处理(暂不支持)
+
+# 调试配置
+debug:
+  log_linguistic_analysis: true     # 记录语言学分析
+  log_prosodic_features: true       # 记录韵律特征
+  log_gesture_transitions: true     # 记录手势转换
+  log_coherence_metrics: true       # 记录连贯性指标
+  save_analysis_data: false         # 保存分析数据到文件
+
+# 实验性功能
+experimental:
+  adaptive_learning: false          # 自适应学习(未实现)
+  emotion_gesture_correlation: false # 情感手势关联(未实现)
+  multi_speaker_adaptation: false   # 多说话人适应(未实现)
+
+# 说明：
+# - 启用语言驱动系统后，手势将基于语言结构、韵律和上下文生成
+# - 系统会自动分析句子结构（并列、对比、递进等）并生成相应的手势模式
+# - 韵律分析会根据停顿、语速、重音调整手势节奏
+# - 连贯性管理确保手势序列的逻辑性和平滑性
+# - 如果新系统出现问题，会自动回退到传统的随机手势系统
